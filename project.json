@@ -1,0 +1,12 @@
+{
+  "name": "client-opendoor",
+  "org": "neurolia-agency",
+  "client": "OpenDoor",
+  "type": "client",
+  "status": "active",
+  "description": "Site vitrine serrurier OpenDoor",
+  "stack": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS 4"],
+  "phase": "B03-Pages",
+  "access": "core-dev",
+  "kpi": "Appel téléphone"
+}
