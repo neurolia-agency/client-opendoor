@@ -14,17 +14,17 @@ export const metadata: Metadata = {
 const TODO = '[À compléter]'
 
 const editeur = {
-  raisonSociale: 'OPENDOOR',
-  formeJuridique: TODO, // ex : Entreprise individuelle (EI), EURL, SASU...
-  mentionEI: TODO, // si entrepreneur individuel : mention « EI » ou « Entrepreneur individuel »
-  capital: TODO, // si société : montant du capital social. Sinon laisser vide.
-  adresse: TODO, // adresse du siège / de l'établissement
+  exploitant: 'Aurélien Eugène',
+  nomCommercial: 'OPENDOOR',
+  formeJuridique: 'Entrepreneur individuel (EI)',
+  capital: 'Sans objet (entreprise individuelle)',
+  adresse: '7 Impasse des Cyprès, Bâtiment E, 11100 Narbonne',
   telephone: '07 89 08 18 57',
-  email: TODO, // ex : contact@opendoor-narbonne.fr (boîte réelle)
-  siret: TODO,
-  immatriculation: TODO, // n° au Registre National des Entreprises (RNE, ex-Répertoire des Métiers)
+  email: TODO, // boîte email réelle (ex : contact@opendoor-narbonne.fr) : à confirmer
+  siret: '853 647 436 00023',
+  immatriculation: 'Registre National des Entreprises (RNE), SIREN 853 647 436',
   tva: TODO, // n° TVA intracommunautaire si assujetti, sinon « TVA non applicable, art. 293 B du CGI »
-  directeurPublication: TODO, // nom du responsable de la publication
+  directeurPublication: 'Aurélien Eugène',
 }
 
 const assurance = {
@@ -93,10 +93,12 @@ export default function MentionsLegalesPage() {
 
             <Section title="Éditeur du site">
               <p>
-                Le présent site est édité par <strong style={{ color: 'var(--foreground)' }}>{editeur.raisonSociale}</strong>.
+                Le présent site est édité par <strong style={{ color: 'var(--foreground)' }}>{editeur.exploitant}</strong>,
+                entrepreneur individuel exerçant sous le nom commercial{' '}
+                <strong style={{ color: 'var(--foreground)' }}>{editeur.nomCommercial}</strong>.
               </p>
               <ul style={{ listStyle: 'none', padding: 0, marginTop: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-                <li>Forme juridique : <Champ>{editeur.formeJuridique}</Champ> (<Champ>{editeur.mentionEI}</Champ>)</li>
+                <li>Forme juridique : <Champ>{editeur.formeJuridique}</Champ></li>
                 <li>Capital social : <Champ>{editeur.capital}</Champ></li>
                 <li>Adresse : <Champ>{editeur.adresse}</Champ></li>
                 <li>Téléphone : <a href="tel:+33789081857" style={{ color: 'var(--primary)' }}>{editeur.telephone}</a></li>
