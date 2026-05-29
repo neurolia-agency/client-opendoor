@@ -22,11 +22,11 @@
   --foreground: oklch(0.25 0.05 50); /* Brun chaud profond */
 
   /* Cards & Surfaces */
-  --card: #ffffff; /* Blanc pur */
+  --card: oklch(0.992 0.006 78); /* Ivoire chaud (jamais de blanc pur) */
   --card-foreground: oklch(0.25 0.05 50); /* Brun profond */
 
   /* Popover (même que card) */
-  --popover: #ffffff;
+  --popover: oklch(0.992 0.006 78);
   --popover-foreground: oklch(0.25 0.05 50);
 
   /* Primary - Orange Ambré (signature) */
@@ -66,7 +66,7 @@
   --ring: oklch(0.70 0.16 60); /* Orange Ambré pour focus */
 
   /* ---------- Typographie (typography.md) ---------- */
-  --font-display: var(--font-ubuntu, 'Inter'), system-ui, sans-serif; /* Ubuntu - titres d'impact, uppercase */
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; /* Display serif élégant - titres d'impact, casse normale */
   --font-heading: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
 
@@ -123,6 +123,10 @@
   --shadow-fab: 0 8px 32px rgba(217, 119, 6, 0.30); /* Orange ambré */
   --shadow-glow: 0 0 24px rgba(217, 119, 6, 0.15); /* Glow orange subtil */
   --shadow-glow-strong: 0 0 40px rgba(217, 119, 6, 0.25); /* Glow orange hover */
+
+  /* Ombres cartes teintées chaud (brun ambré, jamais noir neutre) */
+  --shadow-card: 0 1px 2px rgba(74, 52, 28, 0.05), 0 8px 24px rgba(74, 52, 28, 0.07);
+  --shadow-card-hover: 0 2px 6px rgba(74, 52, 28, 0.06), 0 18px 48px rgba(74, 52, 28, 0.12);
 
   /* ---------- Transitions (visual-vocabulary.md) ---------- */
   --transition-fast: 200ms ease-out;
@@ -187,6 +191,8 @@
   --shadow-fab: var(--shadow-fab);
   --shadow-glow: var(--shadow-glow);
   --shadow-glow-strong: var(--shadow-glow-strong);
+  --shadow-card: var(--shadow-card);
+  --shadow-card-hover: var(--shadow-card-hover);
 
   /* Glass */
   --blur-glass: var(--glass-blur);
@@ -212,7 +218,7 @@
     line-height: var(--line-height-loose);
   }
 
-  /* Typographie - Cormorant pour titres (H2-H4), Integral CF pour H1 */
+  /* Typographie - Cormorant Garamond pour tous les titres (H1-H4) */
   h2, h3, h4 {
     font-family: var(--font-heading);
     color: var(--foreground);
@@ -222,10 +228,9 @@
   h1 {
     font-family: var(--font-display);
     font-size: var(--font-size-h1);
-    font-weight: 700;
-    line-height: var(--line-height-tight);
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
     color: var(--foreground);
   }
 
@@ -339,12 +344,11 @@
     text-wrap: balance;
   }
 
-  /* Font display (Integral CF - titres d'impact) */
+  /* Font display (Cormorant Garamond - titres d'impact, serif élégant casse normale) */
   .font-display {
     font-family: var(--font-display);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
+    font-weight: 600;
+    letter-spacing: -0.01em;
   }
 
   /* Font heading */
@@ -554,10 +558,10 @@
   margin-bottom: 12px;
 }
 
-/* Main block — ultra-tight leading + condensed tracking */
+/* Main block : leading serré pour grand serif Cormorant en casse normale */
 .hero-tagline-main {
-  line-height: 0.88 !important;
-  letter-spacing: -0.05em !important;
+  line-height: 1.0 !important;
+  letter-spacing: -0.01em !important;
 }
 
 /* Tablet (768–1023) */
@@ -567,8 +571,8 @@
   }
 
   .hero-tagline-main {
-    line-height: 0.92 !important;
-    letter-spacing: -0.04em !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.005em !important;
   }
 }
 
@@ -579,8 +583,8 @@
   }
 
   .hero-tagline-main {
-    line-height: 0.95 !important;
-    letter-spacing: -0.03em !important;
+    line-height: 1.04 !important;
+    letter-spacing: 0 !important;
   }
 }
 
@@ -599,83 +603,85 @@
    COMPONENT DEFAULTS
    ============================================ */
 @layer components {
-  /* Bouton primaire - Contour orange + glass (cohérent hero) */
+  /* Bouton primaire - Plein ambre (action principale, haute emphase) */
   .btn-primary {
-    @apply inline-flex items-center justify-center;
-    background: rgba(217, 119, 6, 0.08);
-    color: white;
-    font-family: var(--font-body);
-    font-weight: 600;
-    padding: 0.875rem 1.75rem;
-    border-radius: var(--radius-md);
-    border: 2px solid var(--glass-border);
-    box-shadow: var(--shadow-glow), inset 0 1px 0 rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    transition: all var(--transition-standard);
-  }
-
-  .btn-primary:hover {
-    background: rgba(217, 119, 6, 0.15);
-    border-color: var(--glass-border-hover);
-    box-shadow: var(--shadow-glow-strong), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transform: scale(1.02);
-  }
-
-  .btn-primary:active {
-    background: rgba(217, 119, 6, 0.22);
-  }
-
-  /* Bouton primaire sur fond clair */
-  .btn-primary-light {
-    @apply inline-flex items-center justify-center;
-    background: rgba(217, 119, 6, 0.06);
-    color: var(--primary-dark);
-    font-family: var(--font-body);
-    font-weight: 600;
-    padding: 0.875rem 1.75rem;
-    border-radius: var(--radius-md);
-    border: 2px solid oklch(0.70 0.16 60 / 0.3);
-    box-shadow: 0 0 20px rgba(217, 119, 6, 0.08);
-    transition: all var(--transition-standard);
-  }
-
-  .btn-primary-light:hover {
-    background: rgba(217, 119, 6, 0.12);
-    border-color: oklch(0.70 0.16 60 / 0.5);
-    box-shadow: 0 0 30px rgba(217, 119, 6, 0.15);
-    transform: scale(1.02);
-  }
-
-  /* Bouton secondaire - Solid orange (haute emphase) */
-  .btn-secondary {
-    @apply inline-flex items-center justify-center;
+    @apply inline-flex items-center justify-center gap-2;
     background-color: var(--primary);
     color: var(--primary-foreground);
     font-family: var(--font-body);
     font-weight: 600;
     padding: 0.875rem 1.75rem;
+    min-height: 2.75rem;
     border-radius: var(--radius-md);
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     box-shadow: var(--shadow-glow);
     transition: all var(--transition-standard);
   }
 
-  .btn-secondary:hover {
+  .btn-primary:hover {
     background-color: var(--primary-light);
     box-shadow: var(--shadow-glow-strong);
     transform: scale(1.02);
   }
 
-  /* Bouton outline */
+  .btn-primary:active {
+    background-color: var(--primary-dark);
+    transform: scale(0.99);
+  }
+
+  /* Bouton primaire clair - emphase moyenne sur fond crème */
+  .btn-primary-light {
+    @apply inline-flex items-center justify-center gap-2;
+    background: rgba(217, 119, 6, 0.08);
+    color: var(--primary-dark);
+    font-family: var(--font-body);
+    font-weight: 600;
+    padding: 0.875rem 1.75rem;
+    min-height: 2.75rem;
+    border-radius: var(--radius-md);
+    border: 1px solid oklch(0.70 0.16 60 / 0.25);
+    box-shadow: 0 0 20px rgba(217, 119, 6, 0.06);
+    transition: all var(--transition-standard);
+  }
+
+  .btn-primary-light:hover {
+    background: rgba(217, 119, 6, 0.13);
+    border-color: oklch(0.70 0.16 60 / 0.45);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+
+  /* Bouton secondaire - Brun chaud plein (alternative haute emphase posée) */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2;
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+    font-family: var(--font-body);
+    font-weight: 600;
+    padding: 0.875rem 1.75rem;
+    min-height: 2.75rem;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    box-shadow: var(--shadow-card);
+    transition: all var(--transition-standard);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--secondary-light);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+
+  /* Bouton outline - basse emphase sur fond clair */
   .btn-outline {
-    @apply inline-flex items-center justify-center;
+    @apply inline-flex items-center justify-center gap-2;
     background-color: transparent;
     color: var(--foreground);
-    border: 2px solid var(--border);
+    border: 1px solid oklch(0.80 0.06 65 / 0.7);
     font-family: var(--font-body);
-    font-weight: 500;
-    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    padding: 0.875rem 1.75rem;
+    min-height: 2.75rem;
     border-radius: var(--radius-md);
     transition: all var(--transition-standard);
   }
@@ -684,58 +690,80 @@
     border-color: var(--primary);
     background-color: rgba(217, 119, 6, 0.06);
     box-shadow: 0 0 16px rgba(217, 119, 6, 0.08);
+    transform: translateY(-2px);
   }
 
-  /* Card — Apple-style: white, neutral shadow, no colored border */
+  /* Bouton sur fond sombre - emphase moyenne (crème transparent) */
+  .btn-on-dark {
+    @apply inline-flex items-center justify-center gap-2;
+    background-color: transparent;
+    color: rgba(255, 251, 240, 0.95);
+    border: 1px solid rgba(255, 251, 240, 0.22);
+    font-family: var(--font-body);
+    font-weight: 600;
+    padding: 0.875rem 1.75rem;
+    min-height: 2.75rem;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-standard);
+  }
+
+  .btn-on-dark:hover {
+    background-color: rgba(255, 251, 240, 0.10);
+    border-color: rgba(255, 251, 240, 0.40);
+    color: rgba(255, 251, 240, 1);
+    transform: translateY(-2px);
+  }
+
+  /* Card : surface ivoire chaud, ombre teintée, bordure hairline chaude */
   .card {
     background-color: var(--card);
     border-radius: var(--radius-lg);
-    padding: 1.5rem;
-    box-shadow: var(--shadow-subtle);
-    transition: all var(--transition-standard);
+    padding: 1.75rem;
+    border: 1px solid oklch(0.88 0.025 70 / 0.6);
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition-standard), box-shadow var(--transition-standard), border-color var(--transition-standard);
   }
 
   .card:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-whisper);
+    box-shadow: var(--shadow-card-hover);
+    border-color: oklch(0.80 0.06 65 / 0.7);
   }
 
-  /* Card glass (sur fond sombre) */
+  /* Card glass : glass discret sur fond clair (réservé aux accents, bordure ambrée) */
   .card-glass {
-    background: var(--glass-bg);
+    background: rgba(217, 119, 6, 0.05);
     border-radius: var(--radius-lg);
-    padding: 1.5rem;
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--shadow-glow);
+    padding: 1.75rem;
+    border: 1px solid oklch(0.80 0.06 65 / 0.5);
+    box-shadow: var(--shadow-card);
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
-    transition: all var(--transition-standard);
+    transition: transform var(--transition-standard), box-shadow var(--transition-standard), border-color var(--transition-standard);
   }
 
   .card-glass:hover {
     transform: translateY(-4px);
-    background: var(--glass-bg-hover);
-    border-color: var(--glass-border-hover);
-    box-shadow: var(--shadow-glow-strong);
+    border-color: oklch(0.70 0.16 60 / 0.45);
+    box-shadow: var(--shadow-card-hover);
   }
 
-  /* Card glass dark — glass card sur fond sombre */
+  /* Card glass dark : glass raffiné sur dégradés sombres chauds */
   .card-glass-dark {
-    background: var(--glass-bg);
-    border-radius: var(--radius-lg);
-    padding: 1.25rem 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    background: rgba(255, 251, 240, 0.045);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem 1.75rem;
+    border: 1px solid rgba(255, 251, 240, 0.10);
+    box-shadow: 0 4px 24px rgba(20, 12, 4, 0.25), inset 0 1px 0 rgba(255, 251, 240, 0.06);
     backdrop-filter: blur(var(--glass-blur-strong));
     -webkit-backdrop-filter: blur(var(--glass-blur-strong));
-    transition: all var(--transition-standard);
+    transition: transform var(--transition-standard), box-shadow var(--transition-standard), border-color var(--transition-standard);
   }
 
   .card-glass-dark:hover {
     transform: translateY(-6px);
-    background: var(--glass-bg-hover);
-    border-color: rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 251, 240, 0.18);
+    box-shadow: 0 20px 60px rgba(217, 119, 6, 0.18), inset 0 1px 0 rgba(255, 251, 240, 0.08);
   }
 
   /* Badge */

@@ -48,16 +48,23 @@ export default function InfosPratiques() {
           >
             {infos.map((info, index) => {
               const CardContent = (
-                <div
+                <motion.div
                   className="p-5 lg:p-6"
                   style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
+                    background: 'rgba(255, 251, 240, 0.045)',
                     backdropFilter: 'blur(12px)',
                     WebkitBackdropFilter: 'blur(12px)',
                     borderRadius: 'var(--radius-xl)',
-                    border: '1px solid rgba(255, 255, 255, 0.10)',
-                    transition: 'all 300ms ease-out',
+                    border: '1px solid rgba(255, 251, 240, 0.10)',
+                    boxShadow: '0 4px 24px rgba(20, 12, 4, 0.25), inset 0 1px 0 rgba(255, 251, 240, 0.06)',
+                    transition: 'transform var(--transition-standard), box-shadow var(--transition-standard), border-color var(--transition-standard)',
                   }}
+                  whileHover={{
+                    y: -6,
+                    borderColor: 'rgba(255, 251, 240, 0.18)',
+                    boxShadow: '0 20px 60px rgba(217, 119, 6, 0.18), inset 0 1px 0 rgba(255, 251, 240, 0.08)',
+                  }}
+                  transition={{ duration: 0.3, ease: 'easeOut' }}
                 >
                   <div className="flex items-start gap-4">
                     {/* Number accent */}
@@ -125,7 +132,7 @@ export default function InfosPratiques() {
                       </p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               )
 
               return (
@@ -180,15 +187,14 @@ export default function InfosPratiques() {
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(2rem, 4vw + 0.5rem, 3rem)',
-                fontWeight: 700,
+                fontWeight: 600,
                 lineHeight: 1.1,
-                letterSpacing: '-0.02em',
+                letterSpacing: '-0.01em',
                 color: 'white',
-                textTransform: 'uppercase',
               }}
             >
               Infos<br />
-              <span style={{ color: 'oklch(0.78 0.14 60)' }}>Pratiques</span>
+              <span style={{ color: 'oklch(0.78 0.14 60)', fontStyle: 'italic' }}>pratiques</span>
             </h2>
 
             <p

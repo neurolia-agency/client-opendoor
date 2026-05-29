@@ -116,18 +116,17 @@ export default function ZoneHero() {
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(3rem, 7vw + 0.5rem, 5.5rem)',
-                fontWeight: 700,
-                lineHeight: 0.95,
-                letterSpacing: '-0.03em',
+                fontWeight: 600,
+                lineHeight: 1.0,
+                letterSpacing: '-0.01em',
                 color: 'white',
-                textTransform: 'uppercase',
               }}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
               Zone<br />
-              <span style={{ color: 'oklch(0.78 0.14 60)' }}>d&apos;Intervention</span>
+              <span style={{ color: 'oklch(0.78 0.14 60)', fontStyle: 'italic' }}>d&apos;intervention</span>
             </motion.h1>
           </div>
 
@@ -176,13 +175,13 @@ export default function ZoneHero() {
             >
               <div
                 style={{
-                  background: 'rgba(255, 255, 255, 0.06)',
+                  background: 'rgba(255, 251, 240, 0.045)',
                   backdropFilter: 'blur(12px)',
                   WebkitBackdropFilter: 'blur(12px)',
                   border: '1px solid oklch(0.70 0.16 60 / 0.25)',
                   borderRadius: 'var(--radius-lg)',
                   padding: '1.25rem 1.5rem',
-                  boxShadow: '0 0 24px rgba(217, 119, 6, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.06)',
+                  boxShadow: '0 4px 24px rgba(20, 12, 4, 0.25), inset 0 1px 0 rgba(255, 251, 240, 0.06)',
                 }}
               >
                 <div className="flex items-center gap-4">

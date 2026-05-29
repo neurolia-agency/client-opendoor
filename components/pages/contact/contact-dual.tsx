@@ -31,13 +31,24 @@ export default function ContactDual() {
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true)
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    console.log('Form data:', data)
-    toast.success('Message envoyé !', {
-      description: 'Nous vous recontacterons dans les plus brefs délais.',
-    })
-    reset()
-    setIsSubmitting(false)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      if (!res.ok) throw new Error('request_failed')
+      toast.success('Message envoyé !', {
+        description: 'Nous vous recontacterons dans les plus brefs délais.',
+      })
+      reset()
+    } catch {
+      toast.error("L'envoi a échoué", {
+        description: 'Appelez-nous au 07 89 08 18 57 ou réessayez dans un instant.',
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -99,11 +110,12 @@ export default function ContactDual() {
 
               {/* Phone card — warm gradient, prominent */}
               <motion.a
-                href="tel:0789081857"
+                href="tel:+33789081857"
                 className="group block"
                 style={{
                   borderRadius: 'var(--radius-xl)',
                   overflow: 'hidden',
+                  boxShadow: '0 18px 48px rgba(74, 52, 28, 0.16), var(--shadow-glow)',
                 }}
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
@@ -232,7 +244,7 @@ export default function ContactDual() {
                           marginLeft: '0.5rem',
                         }}
                       >
-                        — {item.detail}
+                        · {item.detail}
                       </span>
                     </div>
                   </motion.div>
@@ -297,8 +309,9 @@ export default function ContactDual() {
                 className="p-8 lg:p-10"
                 style={{
                   backgroundColor: 'var(--card)',
-                  borderRadius: 'var(--radius-xl)',
-                  boxShadow: 'var(--shadow-subtle)',
+                  borderRadius: 'var(--radius-lg)',
+                  border: '1px solid oklch(0.88 0.025 70 / 0.6)',
+                  boxShadow: 'var(--shadow-card)',
                 }}
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -443,23 +456,14 @@ export default function ContactDual() {
                   <motion.button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex items-center justify-center gap-3"
+                    className="btn-primary"
                     style={{
                       padding: '1rem 2.5rem',
-                      fontFamily: 'var(--font-body)',
                       fontSize: '0.9375rem',
-                      fontWeight: 600,
-                      background: isSubmitting
-                        ? 'var(--muted)'
-                        : 'linear-gradient(135deg, oklch(0.70 0.16 60) 0%, oklch(0.65 0.17 55) 100%)',
-                      color: 'white',
-                      borderRadius: 'var(--radius-md)',
-                      border: 'none',
                       cursor: isSubmitting ? 'not-allowed' : 'pointer',
-                      transition: 'all 200ms ease-out',
-                      boxShadow: isSubmitting ? 'none' : '0 4px 16px rgba(217, 119, 6, 0.25)',
+                      opacity: isSubmitting ? 0.6 : 1,
                     }}
-                    whileHover={!isSubmitting ? { scale: 1.02, boxShadow: '0 6px 24px rgba(217, 119, 6, 0.3)' } : {}}
+                    whileHover={!isSubmitting ? { scale: 1.02 } : {}}
                     whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                   >
                     {isSubmitting ? (

@@ -59,10 +59,11 @@ export default function ZonePreview() {
             <div
               className="relative aspect-square max-w-md mx-auto lg:mx-0 p-8"
               style={{
-                background: 'rgba(255, 255, 255, 0.04)',
+                background: 'rgba(255, 251, 240, 0.045)',
                 borderRadius: 'var(--radius-xl)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                backdropFilter: 'blur(8px)',
+                border: '1px solid rgba(255, 251, 240, 0.10)',
+                backdropFilter: 'blur(12px)',
+                boxShadow: '0 4px 24px rgba(20, 12, 4, 0.25), inset 0 1px 0 rgba(255, 251, 240, 0.06)',
               }}
             >
               <div className="relative w-full h-full">
@@ -136,12 +137,11 @@ export default function ZonePreview() {
               className="text-balance mb-5"
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(2rem, 4vw + 0.5rem, 3rem)',
-                fontWeight: 700,
-                lineHeight: 1.1,
-                letterSpacing: '-0.02em',
-                color: 'white',
-                textTransform: 'uppercase',
+                fontSize: 'clamp(2.25rem, 4.5vw + 0.5rem, 3.25rem)',
+                fontWeight: 600,
+                lineHeight: 1.08,
+                letterSpacing: '-0.01em',
+                color: 'rgba(255, 251, 240, 0.97)',
               }}
             >
               Nous intervenons
@@ -168,10 +168,10 @@ export default function ZonePreview() {
                   className="px-4 py-2 text-sm font-medium"
                   style={{
                     fontFamily: 'var(--font-body)',
-                    backgroundColor: ville === 'Narbonne' ? 'oklch(0.70 0.16 60)' : 'rgba(255, 255, 255, 0.06)',
-                    color: ville === 'Narbonne' ? 'white' : 'rgba(255, 255, 255, 0.7)',
+                    backgroundColor: ville === 'Narbonne' ? 'oklch(0.70 0.16 60)' : 'rgba(255, 251, 240, 0.06)',
+                    color: ville === 'Narbonne' ? 'rgba(255, 251, 240, 0.97)' : 'rgba(255, 251, 240, 0.72)',
                     borderRadius: 'var(--radius-pill)',
-                    border: ville === 'Narbonne' ? 'none' : '1px solid rgba(255, 255, 255, 0.1)',
+                    border: ville === 'Narbonne' ? 'none' : '1px solid rgba(255, 251, 240, 0.12)',
                   }}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -189,14 +189,7 @@ export default function ZonePreview() {
             {/* CTA */}
             <Link
               href="/zone"
-              className="inline-flex items-center gap-2 px-6 py-3 font-medium group"
-              style={{
-                fontFamily: 'var(--font-body)',
-                color: 'white',
-                border: '2px solid rgba(255, 255, 255, 0.2)',
-                borderRadius: 'var(--radius-md)',
-                transition: 'all 300ms ease-out',
-              }}
+              className="btn-on-dark group"
             >
               <span>Voir toutes les villes couvertes</span>
               <ArrowRight

@@ -116,18 +116,17 @@ export default function ApprocheHero() {
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(3rem, 7vw + 0.5rem, 5.5rem)',
-                fontWeight: 700,
-                lineHeight: 0.95,
-                letterSpacing: '-0.03em',
+                fontWeight: 600,
+                lineHeight: 1.0,
+                letterSpacing: '-0.01em',
                 color: 'white',
-                textTransform: 'uppercase',
               }}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
               Notre<br />
-              <span style={{ color: 'oklch(0.78 0.14 60)' }}>Approche</span>
+              <span style={{ color: 'oklch(0.78 0.14 60)', fontStyle: 'italic' }}>approche</span>
             </motion.h1>
           </div>
 
@@ -168,6 +167,7 @@ export default function ApprocheHero() {
               key={anchor.label}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -6 }}
               transition={{
                 duration: 0.5,
                 delay: 0.35 + index * 0.1,
@@ -176,14 +176,14 @@ export default function ApprocheHero() {
             >
               <div
                 style={{
-                  background: 'rgba(255, 255, 255, 0.06)',
+                  background: 'rgba(255, 251, 240, 0.045)',
                   backdropFilter: 'blur(12px)',
                   WebkitBackdropFilter: 'blur(12px)',
-                  border: '1px solid oklch(0.70 0.16 60 / 0.25)',
-                  borderRadius: 'var(--radius-lg)',
+                  border: '1px solid rgba(255, 251, 240, 0.10)',
+                  borderRadius: 'var(--radius-xl)',
                   padding: '1.25rem 1.5rem',
-                  boxShadow: '0 0 24px rgba(217, 119, 6, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.06)',
-                  transition: 'all 300ms ease-out',
+                  boxShadow: '0 4px 24px rgba(20, 12, 4, 0.25), inset 0 1px 0 rgba(255, 251, 240, 0.06)',
+                  transition: 'transform var(--transition-standard), box-shadow var(--transition-standard), border-color var(--transition-standard)',
                 }}
               >
                 <div className="flex items-center gap-4">

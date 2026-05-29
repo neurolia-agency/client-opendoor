@@ -1,17 +1,10 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, Inter, Ubuntu } from 'next/font/google'
+import { Cormorant_Garamond, Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/header'
 import Footer from '@/components/layout/footer'
 import { SmoothScrollProvider } from '@/components/smooth-scroll-provider'
 import { Toaster } from 'sonner'
-
-const ubuntu = Ubuntu({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  variable: '--font-ubuntu',
-  display: 'swap',
-})
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ['latin'],
@@ -132,7 +125,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr" suppressHydrationWarning className={`${ubuntu.variable} ${cormorantGaramond.variable} ${inter.variable}`}>
+    <html lang="fr" suppressHydrationWarning className={`${cormorantGaramond.variable} ${inter.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <meta name="theme-color" content="#FFFBF0" />

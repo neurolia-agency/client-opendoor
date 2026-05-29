@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Phone } from 'lucide-react'
 import MobileMenu from './mobile-menu'
 
-// Pages with light hero backgrounds — navbar must use dark text from the start
+// Pages with light hero backgrounds: navbar must use dark text from the start
 const LIGHT_HERO_PAGES = ['/contact']
 
 const navLinks = [
@@ -107,7 +107,7 @@ export default function Header() {
           {/* CTA Phone - Desktop */}
           <div className="hidden lg:flex items-center">
             <a
-              href="tel:0789081857"
+              href="tel:+33789081857"
               className="inline-flex items-center gap-2.5 px-5 py-2 text-sm font-semibold rounded-full"
               style={{
                 color: 'white',
@@ -147,7 +147,7 @@ export default function Header() {
           {/* Mobile: Phone icon + Hamburger */}
           <div className="flex lg:hidden items-center gap-2">
             <a
-              href="tel:0789081857"
+              href="tel:+33789081857"
               className="flex items-center justify-center w-10 h-10 rounded-full"
               style={{
                 color: 'white',

@@ -84,7 +84,7 @@ export default function Footer() {
 
             {/* Phone CTA */}
             <a
-              href="tel:0789081857"
+              href="tel:+33789081857"
               className="inline-flex items-center gap-3 px-5 py-3 font-semibold group"
               style={{
                 fontFamily: 'var(--font-body)',
@@ -118,7 +118,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="inline-block text-base hover-lift"
+                      className="inline-block text-base"
                       style={{
                         fontFamily: 'var(--font-body)',
                         color: 'rgba(255, 255, 255, 0.7)',
@@ -187,7 +187,7 @@ export default function Footer() {
                 />
                 <div>
                   <a
-                    href="tel:0789081857"
+                    href="tel:+33789081857"
                     className="text-base font-medium"
                     style={{
                       fontFamily: 'var(--font-body)',

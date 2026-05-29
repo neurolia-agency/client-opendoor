@@ -87,12 +87,13 @@ export default function Coordonnees() {
                 style={{ borderRadius: 'var(--radius-lg)' }}
               >
                 <div
-                  className="p-7 lg:p-8 h-full"
+                  className="p-7 lg:p-8 h-full group-hover:shadow-card-hover"
                   style={{
                     backgroundColor: 'var(--card)',
                     borderRadius: 'var(--radius-lg)',
-                    boxShadow: 'var(--shadow-subtle)',
-                    transition: 'box-shadow 300ms ease-out',
+                    border: '1px solid oklch(0.88 0.025 70 / 0.6)',
+                    boxShadow: 'var(--shadow-card)',
+                    transition: 'box-shadow 300ms ease-out, border-color 300ms ease-out',
                   }}
                 >
                   {/* Icon */}

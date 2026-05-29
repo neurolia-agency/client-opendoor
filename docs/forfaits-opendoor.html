@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Forfaits accompagnement - OPENDOOR</title>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&display=swap");
+
+  :root {
+    --cream: #F3EEE4;
+    --surface: #FCFAF5;
+    --ink: #211E18;
+    --text: #3B372F;
+    --muted: #79736A;
+    --accent: #C45C3B;
+    --accent-strong: #A84A2D;
+    --rule: rgba(33, 30, 24, 0.14);
+    --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter Tight', system-ui, -apple-system, sans-serif;
+  }
+
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 14mm 14mm 12mm;
+    margin: 0 auto;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 9mm;
+    border-bottom: 1px solid var(--rule);
+  }
+  .logo { width: 132px; height: auto; display: block; }
+  .topbar .meta {
+    text-align: right;
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* Intro */
+  .intro { padding: 9mm 0 7mm; }
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 7px;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    max-width: 17cm;
+  }
+  h1 .it { font-style: italic; color: var(--accent); }
+  .lead {
+    margin-top: 11px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--text);
+    max-width: 15.5cm;
+  }
+
+  /* Cards */
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5mm;
+    margin-top: 3mm;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 16px 15px 17px;
+    display: flex;
+    flex-direction: column;
+    break-inside: avoid;
+  }
+  .card.featured {
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(196, 92, 59, 0.14);
+    position: relative;
+  }
+  .badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #fff;
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .card .name {
+    font-family: var(--font-display);
+    font-size: 23px;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+  .card .tagline {
+    font-size: 10.5px;
+    color: var(--muted);
+    line-height: 1.45;
+    min-height: 30px;
+    margin-bottom: 11px;
+  }
+  .price { display: flex; align-items: baseline; gap: 3px; margin-bottom: 3px; }
+  .price .amount { font-family: var(--font-display); font-size: 34px; color: var(--accent); line-height: 1; }
+  .price .per { font-size: 11px; color: var(--muted); font-weight: 500; }
+  .price-year { font-size: 9px; color: var(--muted); margin-bottom: 13px; }
+  .divider { height: 1px; background: var(--rule); margin: 0 0 12px; }
+
+  ul { list-style: none; display: flex; flex-direction: column; gap: 7px; flex: 1; }
+  li { display: flex; gap: 7px; font-size: 10.5px; line-height: 1.4; color: var(--text); }
+  li .chk {
+    flex-shrink: 0; width: 13px; height: 13px; margin-top: 1px;
+    color: var(--accent);
+  }
+  li.head { color: var(--ink); font-weight: 600; font-size: 10px; }
+  .ideal {
+    margin-top: 13px;
+    padding-top: 11px;
+    border-top: 1px solid var(--rule);
+    font-size: 9.5px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .ideal strong { color: var(--ink); font-weight: 600; }
+
+  /* Footer */
+  .footer {
+    margin-top: auto;
+    padding-top: 9mm;
+  }
+  .terms {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-size: 9.5px;
+    color: var(--muted);
+    line-height: 1.5;
+    padding-bottom: 7mm;
+  }
+  .terms .t strong { color: var(--ink); font-weight: 600; display: block; margin-bottom: 1px; }
+  .signature {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--rule);
+    padding-top: 6mm;
+    font-size: 9.5px;
+    color: var(--muted);
+  }
+  .signature .brand { font-family: var(--font-display); font-size: 15px; color: var(--ink); }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="topbar">
+      <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71.06 13.94" fill="#211E18" aria-label="Neurolia">
+        <path d="M7.78,6.66c.47.7.78,1.22,1.17,1.94-.06-.75-.1-1.5-.1-2.41v-3.71c0-1.07-.03-1.73-.13-2.47h3.47c-.1.73-.13,1.42-.13,2.47v8.65c0,.99.05,1.74.13,2.43h-3.57c-.29-.62-.67-1.22-1.22-2.07l-3.01-4.54c-.44-.65-.72-1.14-1.17-2,.08.73.11,1.63.11,2.43v3.65c0,1.12.03,1.84.13,2.54H0c.1-.63.13-1.35.13-2.56V2.43C.13,1.48.1.75,0,0h3.53c.16.44.52,1.09,1.16,2.04l3.09,4.62Z"/>
+        <path d="M15.99,9.49c.16,1.32.93,2.02,2.21,2.02.65,0,1.22-.21,1.64-.6.24-.23.36-.41.49-.83l2.83.8c-.37.85-.62,1.22-1.07,1.68-.93.91-2.23,1.38-3.84,1.38s-2.85-.46-3.78-1.38c-.96-.98-1.48-2.36-1.48-3.97,0-3.22,2.07-5.36,5.18-5.36,2.54,0,4.31,1.38,4.88,3.81.13.52.2,1.21.24,2.13,0,.07,0,.16.02.33h-7.33ZM20.22,7.25c-.23-1.04-.93-1.6-2.05-1.6s-1.86.52-2.13,1.6h4.18Z"/>
+        <path d="M34.37,3.61c-.1.77-.13,1.45-.13,2.44v5.03c0,1.12.03,1.79.13,2.44h-3.24v-.7c0-.08,0-.33.02-.44-1.07,1.01-2,1.4-3.39,1.4-1.09,0-1.97-.31-2.59-.91-.65-.65-.93-1.45-.93-2.74v-4.09c0-.94-.05-1.76-.13-2.44h3.39c-.1.78-.13,1.46-.13,2.44v3.34c0,.67.06.96.26,1.22.23.29.59.46,1.06.46.9,0,1.81-.64,2.44-1.68v-3.34c0-.91-.03-1.6-.13-2.44h3.37Z"/>
+        <path d="M55.22,0c-.1.68-.13,1.35-.13,2.46v8.63c0,.98.03,1.6.13,2.46h-3.4c.1-.73.13-1.29.13-2.46V2.46c0-1.16-.03-1.84-.13-2.46h3.4Z"/>
+        <path d="M59.42,3.61c-.1.67-.13,1.32-.13,2.46v5.01c0,.88.05,1.76.13,2.46h-3.4c.1-.8.13-1.42.13-2.46v-5.01c0-1.06-.03-1.73-.13-2.46h3.4ZM59.37,0v2.44h-3.3V0h3.3Z"/>
+        <path d="M70.93,5.95c0-1.14.03-1.79.13-2.46h-3.4c.02.15.04.3.05.44-.71-.38-1.52-.61-2.38-.61-2.82,0-5.11,2.29-5.11,5.11s2.29,5.11,5.11,5.11c.87,0,1.67-.24,2.38-.61-.02.16-.03.32-.05.49h3.4c-.08-.7-.13-1.58-.13-2.46v-5.01ZM65.49,11.1c-1.47,0-2.67-1.19-2.67-2.67s1.19-2.67,2.67-2.67,2.67,1.19,2.67,2.67-1.19,2.67-2.67,2.67Z"/>
+        <g>
+          <circle cx="45.91" cy="8.46" r="1.66" fill="#C45C3B"/>
+          <path d="M45.91,3.35c-2.82,0-5.11,2.29-5.11,5.11s2.29,5.11,5.11,5.11,5.11-2.29,5.11-5.11-2.29-5.11-5.11-5.11ZM45.91,11.14c-1.48,0-2.69-1.2-2.69-2.69s1.2-2.69,2.69-2.69,2.69,1.2,2.69,2.69-1.2,2.69-2.69,2.69Z"/>
+        </g>
+        <path d="M38.91,7.11c.36-.45.81-.72,1.37-.83.45-1.15,1.23-2.14,2.24-2.82-.29-.04-.54-.05-.84-.05-1.48,0-2.46.44-3.26,1.48v-1.29h-3.25c.1.7.13,1.27.13,2.46v5.02c0,1.06-.03,1.65-.13,2.46h3.38c-.1-.78-.13-1.4-.13-2.45v-2.54c.07-.72.18-1.06.49-1.45Z"/>
+      </svg>
+      <div class="meta">
+        Proposition d'accompagnement<br>
+        Préparé pour OPENDOOR &middot; Mai 2026
+      </div>
+    </div>
+
+    <div class="intro">
+      <div class="eyebrow">Hébergement &amp; maintenance</div>
+      <h1>Votre site en ligne, <span class="it">sans vous en soucier.</span></h1>
+      <p class="lead">
+        Une fois votre site livré, il a besoin d'être hébergé, sécurisé et maintenu pour rester rapide,
+        fiable et à jour. Nous vous en libérons entièrement avec trois niveaux d'accompagnement, du socle
+        technique essentiel à la gestion clé en main. Vous choisissez, nous nous occupons du reste.
+      </p>
+    </div>
+
+    <div class="cards">
+
+      <!-- ESSENTIEL -->
+      <div class="card">
+        <div class="name">Essentiel</div>
+        <div class="tagline">Votre site en ligne, rapide et sécurisé.</div>
+        <div class="price"><span class="amount">19&thinsp;&euro;</span><span class="per">/ mois</span></div>
+        <div class="price-year">ou 190&thinsp;&euro; / an (2 mois offerts)</div>
+        <div class="divider"></div>
+        <ul>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>Hébergement haute performance</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>Certificat de sécurité SSL (https)</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>Nom de domaine connecté et maintenu</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>Sauvegardes régulières et restauration</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>Surveillance de disponibilité</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>Formulaire de contact opérationnel</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>Mises à jour de sécurité</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>Support par email sous 48&nbsp;h ouvrées</li>
+        </ul>
+        <div class="ideal"><strong>Idéal pour</strong> garder votre site en ligne et fiable, sans y penser.</div>
+      </div>
+
+      <!-- SERENITE -->
+      <div class="card featured">
+        <div class="badge">Recommandé</div>
+        <div class="name">Sérénité</div>
+        <div class="tagline">Nous faisons vivre votre site au fil de votre activité.</div>
+        <div class="price"><span class="amount">39&thinsp;&euro;</span><span class="per">/ mois</span></div>
+        <div class="price-year">ou 390&thinsp;&euro; / an (2 mois offerts)</div>
+        <div class="divider"></div>
+        <ul>
+          <li class="head">Tout le forfait Essentiel, plus :</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>3 modifications de contenu par mois (textes, tarifs, horaires, photos)</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>Support prioritaire sous 24&nbsp;h ouvrées</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>Optimisation continue (vitesse, affichage mobile)</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>Rapport trimestriel (visites et demandes reçues)</li>
+        </ul>
+        <div class="ideal"><strong>Idéal pour</strong> un site qui reste à jour et soigné au quotidien.</div>
+      </div>
+
+      <!-- TRANQUILLITE -->
+      <div class="card">
+        <div class="name">Tranquillité</div>
+        <div class="tagline">On s'occupe de tout, vous gérez votre métier.</div>
+        <div class="price"><span class="amount">69&thinsp;&euro;</span><span class="per">/ mois</span></div>
+        <div class="price-year">ou 690&thinsp;&euro; / an (2 mois offerts)</div>
+        <div class="divider"></div>
+        <ul>
+          <li class="head">Tout le forfait Sérénité, plus :</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>Modifications de contenu illimitées (petites demandes)</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>Support urgent sous 4&nbsp;h ouvrées</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>Suivi de votre visibilité Google à Narbonne</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>1 évolution ou nouvelle section incluse par an</li>
+          <li><svg class="chk" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>Bilan annuel et recommandations</li>
+        </ul>
+        <div class="ideal"><strong>Idéal pour</strong> déléguer entièrement votre présence en ligne.</div>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      <div class="terms">
+        <div class="t"><strong>Sans engagement</strong>Résiliable à tout moment, avec préavis d'un mois.</div>
+        <div class="t"><strong>Mise en service</strong>Activation sous 48&nbsp;h après accord.</div>
+        <div class="t"><strong>Validité</strong>Proposition valable 30 jours. Tarifs hors taxes.</div>
+      </div>
+      <div class="signature">
+        <span class="brand">neurolia</span>
+        <span>Studio design &amp; automatisation &middot; neurolia.work</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

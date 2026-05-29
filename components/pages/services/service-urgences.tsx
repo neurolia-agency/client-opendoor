@@ -15,7 +15,7 @@ const inclus = [
 
 export default function ServiceUrgences() {
   return (
-    <section id="urgences" className="relative overflow-hidden" style={{ backgroundColor: '#f2f2f7' }}>
+    <section id="urgences" className="relative overflow-hidden" style={{ backgroundColor: 'var(--background-alt)' }}>
 
       <div className="container-custom relative z-10 section-padding">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -49,11 +49,10 @@ export default function ServiceUrgences() {
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(2rem, 4vw + 0.5rem, 3rem)',
-                fontWeight: 700,
+                fontWeight: 600,
                 lineHeight: 1.1,
-                letterSpacing: '-0.02em',
+                letterSpacing: '-0.01em',
                 color: 'var(--foreground)',
-                textTransform: 'uppercase',
               }}
             >
               Urgences
@@ -117,7 +116,7 @@ export default function ServiceUrgences() {
 
             {/* CTA */}
             <motion.a
-              href="tel:0789081857"
+              href="tel:+33789081857"
               className="group inline-flex items-center gap-3 px-8 py-4"
               style={{
                 fontFamily: 'var(--font-body)',
@@ -125,7 +124,7 @@ export default function ServiceUrgences() {
                 fontSize: '1.125rem',
                 background: 'linear-gradient(135deg, oklch(0.70 0.16 60) 0%, oklch(0.65 0.17 55) 100%)',
                 color: 'white',
-                borderRadius: 'var(--radius-lg)',
+                borderRadius: 'var(--radius-md)',
                 boxShadow: '0 8px 32px rgba(217, 119, 6, 0.30)',
                 transition: 'all 300ms ease-out',
               }}
@@ -165,10 +164,10 @@ export default function ServiceUrgences() {
             <div
               className="p-6 lg:p-8"
               style={{
-                backgroundColor: '#ffffff',
+                backgroundColor: 'var(--card)',
                 borderRadius: 'var(--radius-xl)',
-                border: '1px solid rgba(0, 0, 0, 0.15)',
-                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.10), 0 12px 32px rgba(0, 0, 0, 0.18)',
+                border: '1px solid oklch(0.88 0.025 70 / 0.6)',
+                boxShadow: 'var(--shadow-card)',
               }}
             >
               <h3

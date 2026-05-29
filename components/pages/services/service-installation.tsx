@@ -37,7 +37,7 @@ export default function ServiceInstallation() {
               className="relative aspect-[16/10] overflow-hidden"
               style={{
                 borderRadius: 'var(--radius-xl)',
-                boxShadow: '0 8px 40px rgba(0, 0, 0, 0.3)',
+                boxShadow: '0 8px 40px rgba(20, 12, 4, 0.35)',
               }}
             >
               <Image
@@ -53,11 +53,12 @@ export default function ServiceInstallation() {
             <div
               className="p-6 lg:p-8"
               style={{
-                background: 'rgba(255, 255, 255, 0.05)',
+                background: 'rgba(255, 251, 240, 0.045)',
                 backdropFilter: 'blur(12px)',
                 WebkitBackdropFilter: 'blur(12px)',
                 borderRadius: 'var(--radius-xl)',
-                border: '1px solid rgba(255, 255, 255, 0.10)',
+                border: '1px solid rgba(255, 251, 240, 0.10)',
+                boxShadow: '0 4px 24px rgba(20, 12, 4, 0.25), inset 0 1px 0 rgba(255, 251, 240, 0.06)',
               }}
             >
               <h3
@@ -134,15 +135,14 @@ export default function ServiceInstallation() {
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(2rem, 4vw + 0.5rem, 3rem)',
-                fontWeight: 700,
+                fontWeight: 600,
                 lineHeight: 1.1,
-                letterSpacing: '-0.02em',
+                letterSpacing: '-0.01em',
                 color: 'white',
-                textTransform: 'uppercase',
               }}
             >
               Installation &<br />
-              <span style={{ color: 'oklch(0.78 0.14 60)' }}>Sécurisation</span>
+              <span style={{ color: 'oklch(0.78 0.14 60)', fontStyle: 'italic' }}>Sécurisation</span>
             </h2>
 
             <p

@@ -41,12 +41,11 @@ export default function CtaFinal() {
             className="text-balance mb-4"
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(1.75rem, 4vw + 0.5rem, 2.75rem)',
-              color: 'white',
-              fontWeight: 700,
-              lineHeight: 1.15,
-              textTransform: 'uppercase',
-              letterSpacing: '-0.02em',
+              fontSize: 'clamp(2rem, 4.5vw + 0.5rem, 3rem)',
+              color: 'rgba(255, 251, 240, 0.98)',
+              fontWeight: 600,
+              lineHeight: 1.1,
+              letterSpacing: '-0.01em',
             }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -84,7 +83,7 @@ export default function CtaFinal() {
           >
             {/* Primary CTA - Phone */}
             <motion.a
-              href="tel:0789081857"
+              href="tel:+33789081857"
               className="group relative flex items-center gap-3.5 px-8 py-4 lg:px-10 lg:py-5 w-full sm:w-auto justify-center"
               style={{
                 fontFamily: 'var(--font-body)',
@@ -93,11 +92,11 @@ export default function CtaFinal() {
                 backgroundColor: 'rgba(255, 251, 240, 0.95)',
                 color: 'oklch(0.35 0.08 45)',
                 borderRadius: 'var(--radius-md)',
-                boxShadow: '0 4px 24px rgba(0, 0, 0, 0.18), 0 0 40px rgba(217, 119, 6, 0.15)',
+                boxShadow: '0 4px 24px rgba(74, 52, 28, 0.26), 0 0 40px rgba(217, 119, 6, 0.18)',
               }}
               whileHover={{
                 scale: 1.03,
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.22), 0 0 50px rgba(217, 119, 6, 0.2)',
+                boxShadow: '0 8px 32px rgba(74, 52, 28, 0.30), 0 0 50px rgba(217, 119, 6, 0.22)',
               }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.3 }}
@@ -119,15 +118,9 @@ export default function CtaFinal() {
             >
               <Link
                 href="/contact"
-                className="group flex items-center gap-3 px-8 py-4 lg:px-10 lg:py-5 w-full sm:w-auto justify-center"
+                className="btn-on-dark group px-8 py-4 lg:px-10 lg:py-5 w-full sm:w-auto"
                 style={{
-                  fontFamily: 'var(--font-body)',
-                  fontWeight: 500,
                   fontSize: '1.0625rem',
-                  color: 'white',
-                  borderRadius: 'var(--radius-md)',
-                  border: '2px solid rgba(255, 255, 255, 0.3)',
-                  transition: 'all 300ms ease-out',
                 }}
               >
                 <span>Demander un devis</span>

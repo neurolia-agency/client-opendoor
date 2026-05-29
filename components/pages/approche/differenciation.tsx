@@ -43,10 +43,9 @@ export default function Differenciation() {
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(1.75rem, 4vw + 0.5rem, 2.75rem)',
               color: 'white',
-              fontWeight: 700,
+              fontWeight: 600,
               lineHeight: 1.15,
-              textTransform: 'uppercase',
-              letterSpacing: '-0.02em',
+              letterSpacing: '-0.01em',
             }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -80,9 +79,9 @@ export default function Differenciation() {
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            {/* Primary CTA — Phone */}
+            {/* Primary CTA : Phone */}
             <motion.a
-              href="tel:0789081857"
+              href="tel:+33789081857"
               className="group relative flex items-center gap-3.5 px-8 py-4 lg:px-10 lg:py-5 w-full sm:w-auto justify-center"
               style={{
                 fontFamily: 'var(--font-body)',
@@ -120,11 +119,11 @@ export default function Differenciation() {
                 className="group flex items-center gap-3 px-8 py-4 lg:px-10 lg:py-5 w-full sm:w-auto justify-center"
                 style={{
                   fontFamily: 'var(--font-body)',
-                  fontWeight: 500,
+                  fontWeight: 600,
                   fontSize: '1.0625rem',
-                  color: 'white',
+                  color: 'rgba(255, 251, 240, 0.95)',
                   borderRadius: 'var(--radius-md)',
-                  border: '2px solid rgba(255, 255, 255, 0.3)',
+                  border: '1px solid rgba(255, 251, 240, 0.22)',
                   transition: 'all 300ms ease-out',
                 }}
               >

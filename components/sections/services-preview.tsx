@@ -131,12 +131,11 @@ export default function ServicesPreview() {
             className="mb-5"
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(2rem, 4vw + 0.5rem, 3rem)',
-              fontWeight: 700,
-              lineHeight: 1.1,
-              letterSpacing: '-0.02em',
-              color: 'white',
-              textTransform: 'uppercase',
+              fontSize: 'clamp(2.25rem, 4.5vw + 0.5rem, 3.25rem)',
+              fontWeight: 600,
+              lineHeight: 1.08,
+              letterSpacing: '-0.01em',
+              color: 'rgba(255, 251, 240, 0.97)',
             }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -172,9 +171,10 @@ export default function ServicesPreview() {
               className="group relative overflow-hidden"
               style={{
                 borderRadius: 'var(--radius-xl)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                background: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 251, 240, 0.10)',
+                background: 'rgba(255, 251, 240, 0.045)',
                 backdropFilter: 'blur(12px)',
+                boxShadow: '0 4px 24px rgba(20, 12, 4, 0.25), inset 0 1px 0 rgba(255, 251, 240, 0.06)',
                 transition: 'all 400ms cubic-bezier(0.16, 1, 0.3, 1)',
               }}
               initial={{ opacity: 0, y: 40 }}
@@ -186,9 +186,9 @@ export default function ServicesPreview() {
                 ease: [0.16, 1, 0.3, 1],
               }}
               whileHover={{
-                y: -8,
+                y: -6,
                 borderColor: `${service.color}`,
-                boxShadow: `0 20px 60px ${service.color}18, inset 0 1px 0 rgba(255,255,255,0.08)`,
+                boxShadow: `0 20px 60px ${service.color}2e, inset 0 1px 0 rgba(255, 251, 240, 0.08)`,
               }}
             >
               {/* Image placeholder area */}
@@ -234,10 +234,11 @@ export default function ServicesPreview() {
                   className="mb-3"
                   style={{
                     fontFamily: 'var(--font-heading)',
-                    fontSize: 'clamp(1.375rem, 2vw + 0.5rem, 1.75rem)',
+                    fontSize: 'clamp(1.5rem, 2.2vw + 0.5rem, 1.875rem)',
                     fontWeight: 600,
-                    color: 'white',
-                    lineHeight: 1.2,
+                    color: 'rgba(255, 251, 240, 0.97)',
+                    lineHeight: 1.15,
+                    letterSpacing: '-0.005em',
                   }}
                 >
                   {service.title}
@@ -287,15 +288,9 @@ export default function ServicesPreview() {
         >
           <Link
             href="/services"
-            className="inline-flex items-center gap-3 px-6 py-4 lg:px-8 lg:py-4 group"
+            className="btn-on-dark group px-6 py-4 lg:px-8 lg:py-4"
             style={{
-              fontFamily: 'var(--font-body)',
               fontSize: '1rem',
-              fontWeight: 500,
-              color: 'white',
-              border: '2px solid rgba(255, 255, 255, 0.2)',
-              borderRadius: 'var(--radius-md)',
-              transition: 'all 300ms ease-out',
             }}
           >
             <span>Voir tous nos services</span>

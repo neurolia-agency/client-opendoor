@@ -91,9 +91,10 @@ export default function MobileMenu({ navLinks, scrolled = false }: MobileMenuPro
                   onClick={() => setIsOpen(false)}
                   className="block py-4 text-2xl font-medium"
                   style={{
-                    fontFamily: 'var(--font-heading)',
+                    fontFamily: 'var(--font-body)',
                     color: 'rgba(255, 255, 255, 0.9)',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.12)',
+                    borderBottom: '1px solid rgba(255, 251, 240, 0.12)',
+                    transition: 'color var(--transition-standard)',
                   }}
                 >
                   {link.label}
@@ -120,13 +121,15 @@ export default function MobileMenu({ navLinks, scrolled = false }: MobileMenuPro
             Une urgence ? Appelez-nous 24h/24
           </p>
           <a
-            href="tel:0789081857"
-            className="flex items-center justify-center gap-3 w-full py-4 text-lg font-medium"
+            href="tel:+33789081857"
+            className="flex items-center justify-center gap-3 w-full py-4 text-lg font-semibold"
             style={{
               fontFamily: 'var(--font-body)',
-              backgroundColor: 'var(--accent)',
-              color: 'var(--accent-foreground)',
-              borderRadius: 'var(--radius-lg)',
+              backgroundColor: 'var(--primary)',
+              color: 'var(--primary-foreground)',
+              borderRadius: 'var(--radius-md)',
+              boxShadow: 'var(--shadow-glow)',
+              transition: 'all var(--transition-standard)',
             }}
             onClick={() => setIsOpen(false)}
           >

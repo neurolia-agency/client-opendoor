@@ -60,23 +60,23 @@ export default function Hero() {
           <div className="flex-1 relative z-10 lg:max-w-[60%]">
             <h1
               style={{
-                textTransform: 'uppercase',
                 maxWidth: '680px',
               }}
               className="text-center lg:text-left mx-auto lg:mx-0"
             >
-              {/* 24/7 */}
+              {/* 24/7 — eyebrow tracké (label court Inter) */}
               <motion.span
                 className="hero-tagline-247"
                 style={{
                   display: 'block',
                   fontFamily: 'var(--font-body)',
-                  fontWeight: 900,
-                  fontSize: 'clamp(40px, 5vw, 72px)',
+                  fontWeight: 600,
+                  fontSize: 'clamp(0.875rem, 0.5vw + 0.75rem, 1.0625rem)',
                   lineHeight: 1,
-                  letterSpacing: '-0.02em',
-                  color: '#FFFFFF',
-                  textShadow: '3px 3px 6px rgba(107, 58, 10, 0.7)',
+                  letterSpacing: '0.22em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(255, 251, 240, 0.92)',
+                  textShadow: '0 2px 8px rgba(107, 58, 10, 0.55)',
                 }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -84,24 +84,24 @@ export default function Hero() {
               >
                 24/7
               </motion.span>
-              {/* INTERVENTION EXPRESS. */}
+              {/* Intervention express. — grand serif Cormorant casse normale */}
               <motion.span
                 className="hero-tagline-main"
                 style={{
                   display: 'block',
-                  fontFamily: 'var(--font-body)',
-                  fontWeight: 900,
-                  fontSize: 'clamp(56px, 7.2vw, 120px)',
-                  color: '#FFFFFF',
-                  textShadow: '3px 3px 6px rgba(107, 58, 10, 0.7)',
+                  fontFamily: 'var(--font-display)',
+                  fontWeight: 600,
+                  fontSize: 'clamp(58px, 7.6vw, 124px)',
+                  color: 'oklch(0.99 0.012 90)',
+                  textShadow: '2px 3px 8px rgba(107, 58, 10, 0.6)',
                 }}
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
               >
-                <span className="inline-block scale-x-[0.85] origin-center lg:origin-left">INTERVENTION</span>
+                Intervention
                 <br />
-                <span className="inline-block scale-x-[0.85] origin-center lg:origin-left">EXPRESS.</span>
+                <span style={{ fontStyle: 'italic' }}>express.</span>
               </motion.span>
             </h1>
           </div>
@@ -129,14 +129,14 @@ export default function Hero() {
 
             {/* CTA — high-contrast white on warm gradient */}
             <motion.a
-              href="tel:0789081857"
+              href="tel:+33789081857"
               className="group inline-flex items-center gap-3.5 transition-all duration-300 hover:scale-[1.04]"
               style={{
                 background: 'rgba(255, 251, 240, 0.95)',
                 color: 'oklch(0.25 0.06 35)',
                 padding: '1rem 2rem',
                 borderRadius: 'var(--radius-md)',
-                boxShadow: '0 4px 24px rgba(0, 0, 0, 0.20), 0 0 40px rgba(217, 119, 6, 0.18)',
+                boxShadow: '0 4px 24px rgba(74, 52, 28, 0.28), 0 0 40px rgba(217, 119, 6, 0.20)',
               }}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}

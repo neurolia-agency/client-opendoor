@@ -60,10 +60,11 @@ export default function ApprochePreview() {
               <div
                 className="absolute bottom-6 left-6 right-6 p-4"
                 style={{
-                  background: 'rgba(255, 255, 255, 0.9)',
+                  background: 'rgba(255, 251, 240, 0.92)',
                   backdropFilter: 'blur(12px)',
                   borderRadius: 'var(--radius-lg)',
-                  boxShadow: 'var(--shadow-whisper)',
+                  border: '1px solid oklch(0.88 0.025 70 / 0.6)',
+                  boxShadow: 'var(--shadow-card)',
                 }}
               >
                 <p
@@ -88,12 +89,11 @@ export default function ApprochePreview() {
               className="mb-6"
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(2rem, 4vw + 0.5rem, 3rem)',
-                fontWeight: 700,
-                lineHeight: 1.1,
-                letterSpacing: '-0.02em',
+                fontSize: 'clamp(2.25rem, 4.5vw + 0.5rem, 3.25rem)',
+                fontWeight: 600,
+                lineHeight: 1.08,
+                letterSpacing: '-0.01em',
                 color: 'var(--foreground)',
-                textTransform: 'uppercase',
               }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

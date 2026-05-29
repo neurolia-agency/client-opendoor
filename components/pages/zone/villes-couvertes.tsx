@@ -20,7 +20,7 @@ const villes = [
 
 export default function VillesCouvertes() {
   return (
-    <section className="relative overflow-hidden" style={{ backgroundColor: '#f2f2f7' }}>
+    <section className="relative overflow-hidden" style={{ backgroundColor: 'var(--background-alt)' }}>
       <div className="container-custom relative z-10 section-padding">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
@@ -54,11 +54,10 @@ export default function VillesCouvertes() {
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(2rem, 4vw + 0.5rem, 3rem)',
-                fontWeight: 700,
+                fontWeight: 600,
                 lineHeight: 1.1,
-                letterSpacing: '-0.02em',
+                letterSpacing: '-0.01em',
                 color: 'var(--foreground)',
-                textTransform: 'uppercase',
               }}
             >
               Villes couvertes
@@ -122,7 +121,7 @@ export default function VillesCouvertes() {
               </div>
 
               <motion.a
-                href="tel:0789081857"
+                href="tel:+33789081857"
                 className="group inline-flex items-center gap-3 px-8 py-4"
                 style={{
                   fontFamily: 'var(--font-body)',
@@ -150,14 +149,21 @@ export default function VillesCouvertes() {
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: 0.15 }}
           >
-            <div
+            <motion.div
               className="p-6 lg:p-8"
               style={{
-                backgroundColor: '#ffffff',
+                backgroundColor: 'var(--card)',
                 borderRadius: 'var(--radius-xl)',
-                border: '1px solid rgba(0, 0, 0, 0.15)',
-                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.10), 0 12px 32px rgba(0, 0, 0, 0.18)',
+                border: '1px solid oklch(0.88 0.025 70 / 0.6)',
+                boxShadow: 'var(--shadow-card)',
+                transition: 'transform var(--transition-standard), box-shadow var(--transition-standard), border-color var(--transition-standard)',
               }}
+              whileHover={{
+                y: -4,
+                boxShadow: 'var(--shadow-card-hover)',
+                borderColor: 'oklch(0.80 0.06 65 / 0.7)',
+              }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
             >
               <h3
                 className="mb-6"
@@ -215,12 +221,12 @@ export default function VillesCouvertes() {
                   fontFamily: 'var(--font-body)',
                   fontSize: '0.8125rem',
                   color: 'var(--muted-foreground)',
-                  borderTop: '1px solid rgba(0, 0, 0, 0.06)',
+                  borderTop: '1px solid oklch(0.88 0.025 70 / 0.6)',
                 }}
               >
                 Votre commune n&apos;est pas listée ? Contactez-nous pour vérifier si nous intervenons chez vous.
               </p>
-            </div>
+            </motion.div>
           </motion.div>
 
         </div>

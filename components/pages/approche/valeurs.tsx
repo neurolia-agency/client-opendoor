@@ -44,15 +44,14 @@ export default function Valeurs() {
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(2rem, 4vw + 0.5rem, 3rem)',
-                fontWeight: 700,
+                fontWeight: 600,
                 lineHeight: 1.1,
-                letterSpacing: '-0.02em',
+                letterSpacing: '-0.01em',
                 color: 'var(--foreground)',
-                textTransform: 'uppercase',
               }}
             >
               Nos<br />
-              <span style={{ color: 'oklch(0.78 0.14 60)' }}>Valeurs</span>
+              <span style={{ color: 'oklch(0.78 0.14 60)', fontStyle: 'italic' }}>valeurs</span>
             </h2>
 
             <p
@@ -83,9 +82,10 @@ export default function Valeurs() {
               <div
                 className="flex items-center gap-2 px-4 py-2"
                 style={{
-                  backgroundColor: 'white',
+                  backgroundColor: 'var(--card)',
                   borderRadius: 'var(--radius-md)',
-                  boxShadow: '0 1px 3px rgba(0, 0, 0, 0.08)',
+                  border: '1px solid oklch(0.88 0.025 70 / 0.6)',
+                  boxShadow: 'var(--shadow-card)',
                 }}
               >
                 <Shield className="w-4 h-4" style={{ color: 'var(--primary-dark)' }} strokeWidth={2} />
@@ -96,9 +96,10 @@ export default function Valeurs() {
               <div
                 className="flex items-center gap-2 px-4 py-2"
                 style={{
-                  backgroundColor: 'white',
+                  backgroundColor: 'var(--card)',
                   borderRadius: 'var(--radius-md)',
-                  boxShadow: '0 1px 3px rgba(0, 0, 0, 0.08)',
+                  border: '1px solid oklch(0.88 0.025 70 / 0.6)',
+                  boxShadow: 'var(--shadow-card)',
                 }}
               >
                 <span className="text-sm font-medium" style={{ color: 'var(--foreground)', fontFamily: 'var(--font-body)' }}>
@@ -132,7 +133,8 @@ export default function Valeurs() {
               style={{
                 backgroundColor: 'var(--card)',
                 borderRadius: 'var(--radius-xl)',
-                boxShadow: 'var(--shadow-whisper)',
+                border: '1px solid oklch(0.88 0.025 70 / 0.6)',
+                boxShadow: 'var(--shadow-card-hover)',
               }}
             >
               <h3

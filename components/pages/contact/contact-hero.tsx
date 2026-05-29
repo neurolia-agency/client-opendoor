@@ -26,7 +26,7 @@ export default function ContactHero() {
               fontSize: 'clamp(2.75rem, 6vw + 0.5rem, 4.5rem)',
               fontWeight: 500,
               lineHeight: 1.08,
-              letterSpacing: '-0.02em',
+              letterSpacing: '-0.01em',
               color: 'var(--foreground)',
               textTransform: 'none',
             }}
@@ -34,7 +34,7 @@ export default function ContactHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
           >
-            Parlons de votre projet.
+            Parlons de votre <span style={{ fontStyle: 'italic' }}>projet</span>.
           </motion.h1>
 
           {/* Baseline */}
