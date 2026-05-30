@@ -29,7 +29,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Service email non configuré' }, { status: 500 })
   }
 
-  const to = process.env.CONTACT_TO_EMAIL || 'gustiez.joris@neurolia.work'
+  // CONTACT_TO_EMAIL peut contenir plusieurs adresses séparées par des virgules.
+  const to = (process.env.CONTACT_TO_EMAIL || 'gustiez.joris@neurolia.work')
+    .split(',')
+    .map((adresse) => adresse.trim())
+    .filter(Boolean)
   // Tant que le domaine n'est pas vérifié dans Resend, on garde l'expéditeur partagé onboarding@resend.dev.
   const from = process.env.CONTACT_FROM_EMAIL || 'OPENDOOR <onboarding@resend.dev>'
 
