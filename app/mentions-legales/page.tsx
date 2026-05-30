@@ -23,13 +23,14 @@ const editeur = {
   email: '1.aurelien.eugene@gmail.com',
   siret: '853 647 436 00023',
   immatriculation: 'Registre National des Entreprises (RNE), SIREN 853 647 436',
-  tva: TODO, // n° TVA intracommunautaire si assujetti, sinon « TVA non applicable, art. 293 B du CGI »
+  tva: 'Non applicable, article 293 B du CGI (franchise en base de TVA)',
   directeurPublication: 'Aurélien Eugène',
 }
 
 const assurance = {
-  assureur: TODO, // nom de la compagnie d'assurance
-  contrat: TODO, // n° de contrat
+  assureur: 'MAAF Assurances',
+  contratNom: 'Multirisque professionnelle du bâtiment et des travaux publics',
+  numero: '180012188 T - MCE - 001',
   zone: 'Narbonne et ses environs (rayon de 50 km)',
 }
 
@@ -105,7 +106,7 @@ export default function MentionsLegalesPage() {
                 <li>Email : <Champ>{editeur.email}</Champ></li>
                 <li>SIRET : <Champ>{editeur.siret}</Champ></li>
                 <li>Immatriculation au Registre National des Entreprises (RNE) : <Champ>{editeur.immatriculation}</Champ></li>
-                <li>Numéro de TVA intracommunautaire : <Champ>{editeur.tva}</Champ></li>
+                <li>TVA : <Champ>{editeur.tva}</Champ></li>
                 <li>Directeur de la publication : <Champ>{editeur.directeurPublication}</Champ></li>
               </ul>
             </Section>
@@ -117,7 +118,8 @@ export default function MentionsLegalesPage() {
               </p>
               <ul style={{ listStyle: 'none', padding: 0, marginTop: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
                 <li>Compagnie d&apos;assurance : <Champ>{assurance.assureur}</Champ></li>
-                <li>Numéro de contrat : <Champ>{assurance.contrat}</Champ></li>
+                <li>Contrat : <Champ>{assurance.contratNom}</Champ></li>
+                <li>Numéro de contrat : <Champ>{assurance.numero}</Champ></li>
                 <li>Zone géographique de couverture : {assurance.zone}</li>
               </ul>
             </Section>
