@@ -20,7 +20,7 @@ const editeur = {
   capital: 'Sans objet (entreprise individuelle)',
   adresse: '7 Impasse des Cyprès, Bâtiment E, 11100 Narbonne',
   telephone: '07 89 08 18 57',
-  email: TODO, // boîte email réelle (ex : contact@opendoor-narbonne.fr) : à confirmer
+  email: '1.aurelien.eugene@gmail.com',
   siret: '853 647 436 00023',
   immatriculation: 'Registre National des Entreprises (RNE), SIREN 853 647 436',
   tva: TODO, // n° TVA intracommunautaire si assujetti, sinon « TVA non applicable, art. 293 B du CGI »
