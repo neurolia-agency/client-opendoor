@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://opendoor-narbonne.fr/sitemap.xml',
+    sitemap: 'https://www.serruriernarbonne.fr/sitemap.xml',
   }
 }

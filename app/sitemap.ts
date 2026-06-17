@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://opendoor-narbonne.fr'
+  const baseUrl = 'https://www.serruriernarbonne.fr'
 
   return [
     {
